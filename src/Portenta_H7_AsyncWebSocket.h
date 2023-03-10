@@ -451,7 +451,7 @@ class AsyncWebSocket: public AsyncWebHandler
     typedef LinkedList<AsyncWebSocketClient *> AsyncWebSocketClientLinkedList;
 
   private:
-    String _url;
+    const char * _url;
     AsyncWebSocketClientLinkedList _clients;
     uint32_t _cNextId;
     AwsEventHandler _eventHandler;
@@ -459,14 +459,14 @@ class AsyncWebSocket: public AsyncWebHandler
     AsyncWebLock _lock;
 
   public:
-    AsyncWebSocket(const String& url);
+    AsyncWebSocket(const char * url);
     ~AsyncWebSocket();
 
     /////////////////////////////////////////////////
 
     const char * url() const
     {
-      return _url.c_str();
+      return _url;
     }
 
     /////////////////////////////////////////////////
