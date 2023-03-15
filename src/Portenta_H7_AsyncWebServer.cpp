@@ -46,10 +46,10 @@ AsyncWebServer::AsyncWebServer(uint16_t port)
   delete h;
 }))
 {
-  _catchAllHandler = new AsyncCallbackWebHandler();
+  //_catchAllHandler = new AsyncCallbackWebHandler();
 
-  if (_catchAllHandler == NULL)
-    return;
+  //if (_catchAllHandler == NULL)
+  //  return;
 
   _server.onClient([](void *s, AsyncClient * c)
   {
@@ -125,6 +125,9 @@ bool AsyncWebServer::removeHandler(AsyncWebHandler *handler)
 
 void AsyncWebServer::begin()
 {
+  if (_catchAllHandler == NULL)
+    _catchAllHandler = new AsyncCallbackWebHandler();
+    
   _server.setNoDelay(true);
   _server.begin();
 }
@@ -255,16 +258,26 @@ AsyncCallbackWebHandler& AsyncWebServer::on(const char* uri, ArRequestHandlerFun
 
 /////////////////////////////////////////////////
 
-void AsyncWebServer::onNotFound(ArRequestHandlerFunction fn)
+AsyncCallbackWebHandler& AsyncWebServer::onNotFound(ArRequestHandlerFunction fn)
 {
+  if (_catchAllHandler == NULL){
+    _catchAllHandler = new AsyncCallbackWebHandler();
+  }
   _catchAllHandler->onRequest(fn);
+
+  return *_catchAllHandler;
 }
 
 /////////////////////////////////////////////////
 
-void AsyncWebServer::onRequestBody(ArBodyHandlerFunction fn)
+AsyncCallbackWebHandler& AsyncWebServer::onRequestBody(ArBodyHandlerFunction fn)
 {
+  if (_catchAllHandler == NULL){
+    _catchAllHandler = new AsyncCallbackWebHandler();
+  }
   _catchAllHandler->onBody(fn);
+
+  return *_catchAllHandler;
 }
 
 /////////////////////////////////////////////////
