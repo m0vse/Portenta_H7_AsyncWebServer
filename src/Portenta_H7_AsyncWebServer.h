@@ -475,7 +475,7 @@ class AsyncWebHandler
     String _password;
 
   public:
-    AsyncWebHandler(): _filter(NULL), _username(""), _password("") {}
+    AsyncWebHandler(): _username(""), _password("") {}
 
     AsyncWebHandler& setFilter(ArRequestFilterFunction fn)
     {
@@ -600,8 +600,8 @@ class AsyncWebServer
     AsyncCallbackWebHandler& on(const char* uri, WebRequestMethodComposite method, ArRequestHandlerFunction onRequest,
                                 ArUploadHandlerFunction onUpload, ArBodyHandlerFunction onBody);
 
-    AsyncCallbackWebHandler& onNotFound(ArRequestHandlerFunction fn);  //called when handler is not assigned
-    AsyncCallbackWebHandler& onRequestBody(ArBodyHandlerFunction
+    void onNotFound(ArRequestHandlerFunction fn);  //called when handler is not assigned
+    void onRequestBody(ArBodyHandlerFunction
                        fn); //handle posts with plain body content (JSON often transmitted this way as a request)
 
     void reset(); //remove all writers and handlers, with onNotFound/onFileUpload/onRequestBody
