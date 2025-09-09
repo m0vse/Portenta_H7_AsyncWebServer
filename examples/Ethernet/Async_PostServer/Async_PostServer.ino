@@ -10,7 +10,7 @@
   Licensed under GPLv3 license
  *****************************************************************************************************************************/
 
-#if !( defined(ARDUINO_PORTENTA_H7_M7) || defined(ARDUINO_PORTENTA_H7_M4) )
+#if !( defined(ARDUINO_PORTENTA_H7_M7) || defined(ARDUINO_PORTENTA_H7_M4) || defined(ARDUINO_GIGA) )
 	#error For Portenta_H7 only
 #endif
 

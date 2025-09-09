@@ -28,7 +28,7 @@
 #ifndef _PORTENTA_H7_ASYNC_WEBSERVER_H_
 #define _PORTENTA_H7_ASYNC_WEBSERVER_H_
 
-#if ( defined(ARDUINO_PORTENTA_H7_M7) || defined(ARDUINO_PORTENTA_H7_M4) )
+#if ( defined(ARDUINO_PORTENTA_H7_M7) || defined(ARDUINO_PORTENTA_H7_M4) || defined(ARDUINO_GIGA) )
 
 
 #else
