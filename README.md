@@ -1,3 +1,5 @@
+This is an attempt to add support for the Arduino Giga R1 Wifi board. It is not currently working and crashes after serving the first request!
+
 # Portenta_H7_AsyncWebServer
 
 [![arduino-library-badge](https://www.ardu-badge.com/badge/Portenta_H7_AsyncWebServer.svg?)](https://www.ardu-badge.com/Portenta_H7_AsyncWebServer)
