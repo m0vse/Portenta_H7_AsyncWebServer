@@ -1154,7 +1154,7 @@ uint16_t AsyncWebSocketClient::remotePort()
    Async Web Socket - Each separate socket location
 */
 
-AsyncWebSocket::AsyncWebSocket(const char * url)
+AsyncWebSocket::AsyncWebSocket(const String & url)
   : _url(url)
   , _clients(LinkedList<AsyncWebSocketClient * >([](AsyncWebSocketClient * c)
 {
